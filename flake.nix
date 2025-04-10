@@ -16,8 +16,9 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }:{
-    nixosModules.hm-nixvim = import ./home-manager/nixvim;
+    nixosModules.home-manager.nixvim = import ./home-manager/nixvim;
     nixosModules.home-manager.starship = import ./home-manager/starship.nix;
     nixosModules.home-manager.bash = import ./home-manager/bash.nix;
+    nixosModules.home-manager.vscode = import ./home-manager/vscode.nix;
   };
 }
