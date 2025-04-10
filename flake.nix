@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = { self, ... }:{
+  outputs = { self, nixpkgs, home-manager, ... }:{
     nixosModules.hm-nixvim = import ./home-manager/nixvim;
   };
 }
