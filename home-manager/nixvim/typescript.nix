@@ -13,22 +13,24 @@
       };
     };
 
-
-
-    plugins.packer = {
+    plugins.lazy = {
       enable = true;
-      plugins = [
-        {
-          name = "msxdev/nvim-dap-vscode-js";
-          requires = "mfussenegger/nvim-dap";
-        }
-        {
-          name = "microsoft/vscode-js-debug";
-          opt = true;
-          run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out";
-        }
-      ];
-    };
+    }; 
+
+    #plugins.packer = {
+    #  enable = true;
+    #  plugins = [
+    #    {
+    #      name = "msxdev/nvim-dap-vscode-js";
+    #      requires = "mfussenegger/nvim-dap";
+    #    }
+    #    {
+    #      name = "microsoft/vscode-js-debug";
+    #      opt = true;
+    #      run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out";
+    #    }
+    #  ];
+    #};
 
     extraPlugins = with pkgs.vimPlugins; [
       nvim-dap
