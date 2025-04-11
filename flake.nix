@@ -29,5 +29,7 @@
 
     # network
     nixosModules.network.certificates = import ./network/certificates.nix;
+
+    nixosModules.nixvim = nixvim.nixosModules.nixvim ( import ./home-manager/nixvim );
   };
 }

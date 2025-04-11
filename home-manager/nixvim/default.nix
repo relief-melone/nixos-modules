@@ -26,7 +26,6 @@ in
 
     clipboard.register = "unnamedplus";
 
-
     colorschemes.catppuccin = {
       enable 	              = true;
 
