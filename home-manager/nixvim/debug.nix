@@ -7,11 +7,6 @@
       dap.enable = true;
       dap-ui.enable = true;
       dap-virtual-text.enable = true;
-
-      packer = {
-        enable = true;
-        plugins = [];
-      };
     };
 
     extraPlugins = with pkgs.vimPlugins; [
