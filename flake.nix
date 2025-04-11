@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:{
+  outputs = { self, nixpkgs, home-manager, nixvim, ... }:{
     # home-manager 
     nixosModules.home-manager.bash = import ./home-manager/bash.nix;
     nixosModules.home-manager.git = import ./home-manager/git.nix;
