@@ -5,6 +5,10 @@ let
 in
 {
 
+  environment.systemPackages = with pkgs; [
+    ripgrep
+  ];
+
   imports = [
     nixvim.homeManagerModules.nixvim
     ./codecompanion.nix
