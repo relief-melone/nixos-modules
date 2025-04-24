@@ -14,7 +14,12 @@
     };
 
     plugins.lazy = {
+      package = "lazy-nvim";
       enable = true;
+      plugins = {
+        dev = true;
+        dir = "mfussenegger/nvim-dap";
+      }; 
     }; 
 
     #plugins.packer = {
@@ -46,7 +51,7 @@
 
       -- DEBUG CONFIG TYPESCRIPT
       for _, lang in ipairs(languages) do
-        dap.configurations.typescript = {
+        dap.configurations[lang] = {
           {
             type = "pwa-node",
             request = "launch",

@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+
+  imports = [
+    ./hardware-configuration.nix
+  ];
   # use EFI
   boot.loader = {
     efi.canTouchEfiVariables = true;
