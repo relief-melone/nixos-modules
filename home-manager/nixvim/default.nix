@@ -5,7 +5,7 @@ let
 in
 {
 
-  environment.systemPackages = with pkgs; [
+  config.environment.systemPackages = with pkgs; [
     ripgrep
   ];
 
