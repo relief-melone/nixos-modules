@@ -14,12 +14,11 @@
     };
 
     plugins.lazy = {
-      package = "lazy-nvim";
       enable = true;
-      plugins = {
-        dev = true;
-        dir = "mfussenegger/nvim-dap";
-      }; 
+      #plugins = {
+      #  dev = true;
+      #  dir = "mfussenegger/nvim-dap";
+      #}; 
     }; 
 
     #plugins.packer = {
