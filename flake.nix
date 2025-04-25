@@ -29,6 +29,7 @@
 
     # network
     nixosModules.network.certificates = import ./network/certificates.nix;
+    nixosModules.network.allow_rm_ssh = import ./network/allow_rm_ssh.nix;
 
     nixosModules.nixvim = nixvim.nixosModules.nixvim ( import ./home-manager/nixvim );
   };

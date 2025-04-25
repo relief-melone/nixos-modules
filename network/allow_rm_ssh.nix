@@ -1,0 +1,14 @@
+{ ... }:
+{
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+  };
+
+  users.users.relief-melone.openssh.authorizedKeys.keyFiles = [
+    
+    ''ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCmD/A/LwnJYA6lkxOE0AkaUj/QKrwjb9vXwjg0yimNze8TVxq1tTEF8sHju9PzMY8NEQokWaE7LVE68YxEHiPVu/7Ble83SL4q1xXM7Ju1LmfKFvvDwiHnXKrCffR3pmc9cOSPyhJpaNUU6tkOZ95Yg6RzRCWG39oxX4rpggYMFcJp3L1wXDjrdELvNJYoWptASgT0G+sLFTpZGaQnvmnzu2x9LljTN21SZqopiOq2F87T/g2NE9KNxN7oSacCqLXhLBsmjXdmSlGeY/hF6WTp5dT5jQ0x2xwZhREasgxussMsB9x541Ooeh5CDTsy8kGIJkBO4WNG3BhsehzY2xcDu676y7fCdZLTzI90bHhdTTZts/eKEGbNTWMJAZyWj6akJs+BNs1TOw1s0/HKv1E0gE62DqTihzDTZxZHob9wwHYW17N/OyxHLGQm7uV1OYVwhQC3cHP+EijzxPYrYbcjEGFP0QXqp0/3AzQN1BKL8B8c61rFGZrVvN9SX1Lu28YTsV9r9QZSNTYAOOYQburlaNHq68j4j8YWs2lD4CTZQ2+xeB6AgbtigdoXTuLg/UMptoDgiYvIKBz2nG8E6GA1illFg2qQ3yh05NEsPYZazQSLbAyz41n/vFy58ERkV+hPagBVtK6Nefx2Fjv5gqffIEwpiL6uaUc+NkmGDZR5Ow== relief-melone@gmail.com''
+
+  ];
+}
