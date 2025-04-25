@@ -7,6 +7,6 @@
   };
 
   users.users.relief-melone.openssh.authorizedKeys.keyFiles = [
-    ./ssh_pub_keys/id_rsa.pub
+    ./ssh_pub_keys/rm_rsa.pub
   ];
 }
