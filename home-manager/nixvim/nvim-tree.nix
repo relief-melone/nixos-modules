@@ -16,7 +16,10 @@
 
         icons = {
           git_placement = "after";
-          show.git = true;
+          show = { 
+            folder_arrow = false;
+            git = true;
+          };
           web_devicons = {
             file.enable = true;
             file.color = true;
