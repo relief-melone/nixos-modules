@@ -11,6 +11,7 @@
         indent_markers = {
           enable = true;
           inline_arrows = false;
+          icons.item = "├";
         };
 
         icons = {
