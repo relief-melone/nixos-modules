@@ -188,7 +188,7 @@ in
 
     keymaps = [
       # Navigation
-      { mode = "t"; action = "<cmd>b#<cr>"; key="<C-b>"; }
+      { mode = "n"; action = "<cmd>b#<cr>"; key="<C-b>"; }
 
       # Nvim-tree
       { mode = "n"; action = "<cmd>NvimTreeToggle<cr>"; key = "<C-M-b>"; }
