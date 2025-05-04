@@ -7,6 +7,7 @@
     extraOptions = {
       renderer = {
         highlight_git = true;
+        root_folder_label = false;
 
         indent_markers = {
           enable = true;
