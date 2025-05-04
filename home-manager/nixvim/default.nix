@@ -10,6 +10,7 @@ in
     ./codecompanion.nix
     ./debug.nix
     ./noice.nix
+    ./nvim-tree.nix
     ./rust.nix
     ./treesitter.nix
     ./typescript.nix
