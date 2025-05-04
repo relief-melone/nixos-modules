@@ -7,7 +7,11 @@
     extraOptions = {
       renderer = {
         highlight_git = true;
-        indent_markers.enable = true;
+
+        indent_markers = {
+          enable = true;
+          inline_arrows = false;
+        };
 
         icons = {
           git_placement = "after";
