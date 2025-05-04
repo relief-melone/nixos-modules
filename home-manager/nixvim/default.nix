@@ -74,7 +74,6 @@ in
 
 
     plugins = {
-      chadtree.enable           = true;
       dap.enable                = true;
       diffview.enable           = true;
       fugitive.enable           = true;
@@ -188,11 +187,15 @@ in
     };
 
     keymaps = [
+      # Navigation
+      { mode = "t"; action = "<cmd>b#<cr>"; key="<C-b>"; }
+
       # Nvim-tree
-      { mode = "n"; action = "<cmd>CHADopen<cr>"; key = "<C-M-b>"; }
+      { mode = "n"; action = "<cmd>NvimTreeToggle<cr>"; key = "<C-M-b>"; }
       
       # Telescope
       { mode = "n"; action = "<cmd>Telescope find_files<cr>"; key = "<C-M-p>"; }
+      { mode = "n"; action = "<cmd>Telescope live_grep<cr>"; key="<leader>lg"; }
 
       # Terminal
       { mode = "t"; action = "<C-\\><C-n>"; key = "<esc>"; }
@@ -207,7 +210,6 @@ in
       { mode = "n"; action = "<cmd>lua vim.lsp.buf.definition()<cr>"; key = "<C-D>"; }
       { mode = "n"; action = "<cmd>lua vim.lsp.buf.rename()<cr>"; key="<F2>"; }
       { mode = "n"; action = "<cmd>lua vim.lsp.buf.hover()<cr>"; key="<leader>h"; }
-      { mode = "n"; action = "<cmd>Telescope live_grep<cr>"; key="<leader>lg"; }
       { mode = "n"; action = "<cmd>lua vim.diagnostic.open_float()<cr>"; key="<leader>D"; }
 
       # Rust
