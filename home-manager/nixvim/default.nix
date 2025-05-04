@@ -85,7 +85,6 @@ in
       markview.enable           = true;
       neotest.enable            = true;
       notify.enable             = true;
-      nvim-tree.enable          = true;
       rainbow-delimiters.enable = true;
       toggleterm.enable         = true;
       web-devicons.enable       = true;
