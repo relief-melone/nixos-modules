@@ -208,6 +208,7 @@ in
 
       # LSP
       { mode = "n"; action = "<cmd>lua vim.lsp.buf.definition()<cr>"; key = "<C-D>"; }
+      { mode = "n"; action = "<cmd>lua vim.diagnostic.open_float()<cr>"; key = "<C-l>"; }
       { mode = "n"; action = "<cmd>lua vim.lsp.buf.rename()<cr>"; key="<F2>"; }
       { mode = "n"; action = "<cmd>lua vim.lsp.buf.hover()<cr>"; key="<leader>h"; }
       { mode = "n"; action = "<cmd>lua vim.diagnostic.open_float()<cr>"; key="<leader>D"; }
