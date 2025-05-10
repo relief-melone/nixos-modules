@@ -110,8 +110,10 @@ in
       };
 
       dap = {
-        dapBreakpoint =  { text="◉"; texthl="DapBP"; linehl=""; numhl=""; };
-        dapStopped =  { text="◉"; texthl="DapST"; linehl="DapST"; numhl="DapST"; };
+        signs = {
+          dapBreakpoint =  { text="◉"; texthl="DapBP"; linehl=""; numhl=""; };
+          dapStopped =  { text="◉"; texthl="DapST"; linehl="DapST"; numhl="DapST"; };
+        };
       };
 
       telescope = {
