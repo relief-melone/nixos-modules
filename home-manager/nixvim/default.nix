@@ -104,7 +104,7 @@ in
       
       airline = {
         settings = {
-          powerline_fonts = true;
+          powerline_fonts = 1;
           theme = "base16_dracula";
         };
       };
