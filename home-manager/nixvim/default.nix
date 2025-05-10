@@ -46,6 +46,10 @@ in
       };
     };
 
+    highlight = {
+      DapBP = { fg = "#7bcc40";};
+      DapST    = { fg = "#f47722"; };
+    };
 
     opts = {
       number          = true;
@@ -75,6 +79,11 @@ in
 
 
     plugins = {
+      barbar.enable             = true;
+      telescope.enable          = true;
+      lsp.enable                = true;
+      blink-cmp.enable          = true;
+      airline.enable            = true;
       dap.enable                = true;
       diffview.enable           = true;
       fugitive.enable           = true;
@@ -90,22 +99,22 @@ in
       web-devicons.enable       = true;
       
       barbar = {
-        enable = true;
         settings.animation = true;
       };
       
       airline = {
-        enable = false;
-        
         settings = {
           powerline_fonts = true;
           theme = "base16_dracula";
         };
       };
 
+      dap = {
+        dapBreakpoint =  { text="◉"; texthl="DapBP"; linehl=""; numhl=""; };
+        dapStopped =  { text="◉"; texthl="DapST"; linehl="DapST"; numhl="DapST"; };
+      };
+
       telescope = {
-        enable = true;
-        
         settings = {
           pickers.find_files = {
             hidden = true;
@@ -128,8 +137,6 @@ in
       };
 
       lsp = {
-        enable            = true;
-
         servers = {
           bashls.enable     = true;
           dockerls.enable   = true;
@@ -163,7 +170,6 @@ in
       };
 
       blink-cmp = {
-        enable = true;
         settings = {
           keymap = {
             "<Tab>" = [ "select_next" "fallback" ];
