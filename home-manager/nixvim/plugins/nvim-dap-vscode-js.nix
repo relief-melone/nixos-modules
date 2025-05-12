@@ -1,36 +1,5 @@
 { pkgs, system, ... }:
 let
-  nodejs = pkgs.nodejs_20;
-  src = pkgs.fetchFromGitHub {
-    owner = "relief-melone";
-    repo = "vscode-js-debug";
-    rev = "feature.v1.100.0-vimPlugin";
-    sha256 = "sha256-CeAAzwPUiRyjsAiLCUb0fcyAvbJWaPgeKNAdYfTf4+c=";
-  };
-
-  nodePkgs = import "${src}/default.nix" { inherit pkgs system nodejs; };
-  nodeDependencies = ( nodePkgs // { inherit pkgs; }).nodeDependencies;
-
-  vscode-js-debug = pkgs.vimUtils.buildVimPlugin {
-    inherit src;
-
-    pname = "vscode-js-debug";
-    version = "v1.97.0";
-
-    nativeBuildInputs = [ nodejs ];
-
-    buildPhase = ''
-      ln -s ${nodeDependencies}/lib/node_modules ./node_modules
-
-      export PATH="${nodeDependencies}/bin:$PATH"
-      export XDG_CACHE_HOME=$(pwd)/node-gyp-cache
-
-      npx gulp dapDebugServer
-
-      mv ./dist out
-    '';
-  };
-
   nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
     pname = "nvim-dap-vscode-js";
     version = "v1.1.0";
@@ -43,16 +12,15 @@ let
     };
 
 
-    dependencies = [
+    dependencies = with pkgs.vimPlugins; [
       vscode-js-debug
-      pkgs.vimPlugins.nvim-dap
+      nvim-dap
     ];
   };
 
 in
 {
   programs.nixvim.extraPlugins = [
-    vscode-js-debug
     nvim-dap-vscode-js
   ];
 
@@ -62,7 +30,7 @@ in
     local languages = { "javascript" }
 
     dap_vscode_js.setup({
-      debugger_path = "${vscode-js-debug}", 
+      debugger_path = "${pkgs.vimPlugins.vscode-js-debug}", 
       adapters = { 'pwa-node' }
     })
   
@@ -73,7 +41,7 @@ in
       executable = {
         command = 'node',
         args = {
-          "${vscode-js-debug}/out/src/dapDebugServer.js",
+          "${pkgs.vimPlugins.vscode-js-debug}/out/src/dapDebugServer.js",
           "''${port}",
         },
       },
