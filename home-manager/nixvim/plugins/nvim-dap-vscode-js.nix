@@ -1,26 +1,6 @@
 { pkgs, system, ... }:
-let
-  nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
-    pname = "nvim-dap-vscode-js";
-    version = "v1.1.0";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "mxsdev";
-      repo = "nvim-dap-vscode-js";
-      rev = "v1.1.0";
-      sha256 = "sha256-lZABpKpztX3NpuN4Y4+E8bvJZVV5ka7h8x9vL4r9Pjk=";
-    };
-
-
-    dependencies = with pkgs.vimPlugins; [
-      vscode-js-debug
-      nvim-dap
-    ];
-  };
-
-in
 {
-  programs.nixvim.extraPlugins = [
+  programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
     nvim-dap-vscode-js
   ];
 
