@@ -19,10 +19,9 @@
       host = 'localhost',
       port = "''${port}",
       executable = {
-        command = 'node',
+        command = '${pkgs.vimPlugins.vscode-js-debug}/bin/js-debug',
         args = {
-          "${pkgs.vimPlugins.vscode-js-debug}/bin/js-debug",
-          "''${port}",
+          "''${port}"
         },
       },
     }
