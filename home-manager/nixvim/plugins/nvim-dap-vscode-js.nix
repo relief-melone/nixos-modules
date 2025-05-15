@@ -10,7 +10,7 @@
     local languages = { "javascript" }
 
     dap_vscode_js.setup({
-      debugger_path = "${pkgs.vimPlugins.vscode-js-debug}", 
+      debugger_path = "${pkgs.vscode-js-debug}", 
       adapters = { 'pwa-node' }
     })
   
@@ -19,7 +19,7 @@
       host = 'localhost',
       port = "''${port}",
       executable = {
-        command = '${pkgs.vimPlugins.vscode-js-debug}/bin/js-debug',
+        command = '${pkgs.vscode-js-debug}/bin/js-debug',
         args = {
           "''${port}"
         },
