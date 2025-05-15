@@ -21,7 +21,7 @@
       executable = {
         command = 'node',
         args = {
-          "${pkgs.vimPlugins.vscode-js-debug}/out/js-debug"
+          "${pkgs.vimPlugins.vscode-js-debug}/out/js-debug",
           "''${port}",
         },
       },
