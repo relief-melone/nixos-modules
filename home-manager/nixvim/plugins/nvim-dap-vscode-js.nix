@@ -21,7 +21,7 @@
       executable = {
         command = 'node',
         args = {
-          "${pkgs.vimPlugins.vscode-js-debug}/out/src/dapDebugServer.js",
+          "${pkgs.vimPlugins.vscode-js-debug}/out/js-debug"
           "''${port}",
         },
       },
