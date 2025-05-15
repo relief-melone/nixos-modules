@@ -1,58 +1,6 @@
 { pkgs, system, ... }:
-let
-  nodejs = pkgs.nodejs_20;
-  src = pkgs.fetchFromGitHub {
-    owner = "relief-melone";
-    repo = "vscode-js-debug";
-    rev = "feature.v1.100.0-vimPlugin";
-    sha256 = "sha256-CeAAzwPUiRyjsAiLCUb0fcyAvbJWaPgeKNAdYfTf4+c=";
-  };
-
-  nodePkgs = import "${src}/default.nix" { inherit pkgs system nodejs; };
-  nodeDependencies = ( nodePkgs // { inherit pkgs; }).nodeDependencies;
-
-  vscode-js-debug = pkgs.vimUtils.buildVimPlugin {
-    inherit src;
-
-    pname = "vscode-js-debug";
-    version = "v1.97.0";
-
-    nativeBuildInputs = [ nodejs ];
-
-    buildPhase = ''
-      ln -s ${nodeDependencies}/lib/node_modules ./node_modules
-
-      export PATH="${nodeDependencies}/bin:$PATH"
-      export XDG_CACHE_HOME=$(pwd)/node-gyp-cache
-
-      npx gulp dapDebugServer
-
-      mv ./dist out
-    '';
-  };
-
-  nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
-    pname = "nvim-dap-vscode-js";
-    version = "v1.1.0";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "mxsdev";
-      repo = "nvim-dap-vscode-js";
-      rev = "v1.1.0";
-      sha256 = "sha256-lZABpKpztX3NpuN4Y4+E8bvJZVV5ka7h8x9vL4r9Pjk=";
-    };
-
-
-    dependencies = [
-      vscode-js-debug
-      pkgs.vimPlugins.nvim-dap
-    ];
-  };
-
-in
 {
-  programs.nixvim.extraPlugins = [
-    vscode-js-debug
+  programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
     nvim-dap-vscode-js
   ];
 
@@ -62,7 +10,7 @@ in
     local languages = { "javascript" }
 
     dap_vscode_js.setup({
-      debugger_path = "${vscode-js-debug}", 
+      debugger_path = "${pkgs.vscode-js-debug}", 
       adapters = { 'pwa-node' }
     })
   
@@ -71,10 +19,9 @@ in
       host = 'localhost',
       port = "''${port}",
       executable = {
-        command = 'node',
+        command = '${pkgs.vscode-js-debug}/bin/js-debug',
         args = {
-          "${vscode-js-debug}/out/src/dapDebugServer.js",
-          "''${port}",
+          "''${port}"
         },
       },
     }
