@@ -97,6 +97,7 @@ in
       rainbow-delimiters.enable = true;
       toggleterm.enable         = true;
       web-devicons.enable       = true;
+      which-key.enable          = true;
       
       barbar = {
         settings.animation = true;
@@ -227,7 +228,7 @@ in
       { mode = "n"; action = "<cmd>lua vim.cmd.RustLsp('codeAction')<cr>"; key="<leader>Ra"; }
 
       # DiffView
-      { mode = "n"; action = "<cmd>DiffViewOpen"; key = "<F3>"; }
+      { mode = "n"; action = "<cmd>DiffViewOpen<cr>"; key = "<F3>"; }
       { mode = "n"; action = "<cmd>DiffViewClose<cr>"; key = "<F4>"; }
     ];
 
