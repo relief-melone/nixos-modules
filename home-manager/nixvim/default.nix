@@ -47,8 +47,9 @@ in
     };
 
     highlight = {
-      DapBP = { fg = "#7bcc40";};
-      DapST    = { fg = "#f47722"; };
+      DapBP         = { fg = "#7bcc40";};
+      DapST         = { fg = "#f47722"; };
+      VisualNonText = { fg = "#2be6d2"; };
     };
 
     opts = {
@@ -96,6 +97,7 @@ in
       notify.enable             = true;
       rainbow-delimiters.enable = true;
       toggleterm.enable         = true;
+      visual-whitespace.enable  = true;
       web-devicons.enable       = true;
       which-key.enable          = true;
       
@@ -191,6 +193,12 @@ in
               window.border = "single";
             };
           };
+        };
+      };
+
+      visual-whitespace = {
+        settings = {
+          
         };
       };
     };
