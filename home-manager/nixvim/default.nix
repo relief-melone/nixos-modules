@@ -198,7 +198,13 @@ in
 
       visual-whitespace = {
         settings = {
-          
+          match_types = {
+            space = false;
+            tab = false;
+            nbsp = false;
+            lead = true;
+            trail = true;
+          }; 
         };
       };
     };
