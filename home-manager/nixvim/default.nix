@@ -244,6 +244,9 @@ in
 
       # WhichKey
       { mode = "n"; action = "<cmd>WhichKey<cr>"; key = "<C-k>"; }
+
+      # Misc
+      { mode = "n"; action = "<cmd>lua require('whitespace-nvim').trim<cr>"; key="<leader>tw"; }
     ];
 
     autoCmd = [{
