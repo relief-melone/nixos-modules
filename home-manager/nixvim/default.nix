@@ -230,6 +230,9 @@ in
       # DiffView
       { mode = "n"; action = "<cmd>DiffViewOpen<cr>"; key = "<F3>"; }
       { mode = "n"; action = "<cmd>DiffViewClose<cr>"; key = "<F4>"; }
+
+      # WhichKey
+      { mode = "n"; action = "<cmd>WhichKey<cr>"; key = "<C-k>"; }
     ];
 
     autoCmd = [{
