@@ -225,6 +225,10 @@ in
       { mode = "n"; action = "<cmd>lua vim.cmd.RustLsp('debuggables')<cr>"; key="<leader>Rd"; }
       { mode = "n"; action = "<cmd>lua vim.cmd.RustLsp{ 'hover', 'actions' }<cr>"; key="<leader>Rh"; }
       { mode = "n"; action = "<cmd>lua vim.cmd.RustLsp('codeAction')<cr>"; key="<leader>Ra"; }
+
+      # DiffView
+      { mode = "n"; action = "<cmd>DiffViewOpen<cr>"; key = "<F3>"; }
+      { mode = "n"; action = "<cmd>DiffViewClose<cr>"; key = "<F4>"; }
     ];
 
     autoCmd = [{
