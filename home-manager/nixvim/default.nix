@@ -97,7 +97,7 @@ in
       notify.enable             = true;
       rainbow-delimiters.enable = true;
       toggleterm.enable         = true;
-      visual-whitespace.enable  = true;
+      whitespace.enable  = true;
       web-devicons.enable       = true;
       which-key.enable          = true;
       
@@ -196,15 +196,11 @@ in
         };
       };
 
-      visual-whitespace = {
+      whitespace = {
         settings = {
-          match_types = {
-            space = false;
-            tab = false;
-            nbsp = false;
-            lead = true;
-            trail = true;
-          }; 
+          hightlight = "ColoredWhitespace";
+          ignore_terminal = true;
+          return_cursor = true;
         };
       };
     };
