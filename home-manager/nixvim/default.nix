@@ -237,9 +237,10 @@ in
       { mode = "n"; action = "<cmd>lua vim.cmd.RustLsp{ 'hover', 'actions' }<cr>"; key="<leader>Rh"; }
       { mode = "n"; action = "<cmd>lua vim.cmd.RustLsp('codeAction')<cr>"; key="<leader>Ra"; }
 
-      # DiffView
+      # Git
       { mode = "n"; action = "<cmd>DiffviewOpen<cr>"; key = "<F3>"; }
       { mode = "n"; action = "<cmd>DiffviewClose<cr>"; key = "<F4>"; }
+      { mode = "n"; action = "<cmd>Flog<cr>"; key = "<F5>"; }
 
       # WhichKey
       { mode = "n"; action = "<cmd>WhichKey<cr>"; key = "<C-k>"; }
