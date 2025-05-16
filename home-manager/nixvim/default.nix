@@ -242,8 +242,8 @@ in
       { mode = "n"; action = "<cmd>lua vim.cmd.RustLsp('codeAction')<cr>"; key="<leader>Ra"; }
 
       # DiffView
-      { mode = "n"; action = "<cmd>DiffViewOpen<cr>"; key = "<F3>"; }
-      { mode = "n"; action = "<cmd>DiffViewClose<cr>"; key = "<F4>"; }
+      { mode = "n"; action = "<cmd>DiffviewOpen<cr>"; key = "<F3>"; }
+      { mode = "n"; action = "<cmd>DiffviewClose<cr>"; key = "<F4>"; }
 
       # WhichKey
       { mode = "n"; action = "<cmd>WhichKey<cr>"; key = "<C-k>"; }
