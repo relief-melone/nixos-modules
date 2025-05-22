@@ -6,6 +6,7 @@
   ];
 
   programs.nixvim.plugins = {
+    blink-cmp-copilot.enable = true;
     blink-cmp = {
       enable = true;
       settings.sources = {
