@@ -1,13 +1,10 @@
 { pkgs, config, nixvim, lib, ...}:
-let
-  buildVimPlugin = pkgs.vimUtils.buildVimPlugin;
-  fetchFromGitHub = pkgs.fetchFromGitHub;
-in
 {
 
   imports = [
     nixvim.homeManagerModules.nixvim
-    ./codecompanion.nix
+    ./ai
+
     ./debug.nix
     ./noice.nix
     ./nvim-tree.nix
@@ -100,11 +97,11 @@ in
       whitespace.enable  = true;
       web-devicons.enable       = true;
       which-key.enable          = true;
-      
+
       barbar = {
         settings.animation = true;
       };
-      
+
       airline = {
         settings = {
           powerline_fonts = 1;
@@ -126,7 +123,7 @@ in
             theme = "dropdown";
           };
 
-          defaults = { 
+          defaults = {
             file_ignore_patterns = [
               "node_modules"
               "dist"
@@ -154,7 +151,7 @@ in
           yamlls = {
             enable          = true;
             settings = {
-              yaml.schemas = { 
+              yaml.schemas = {
                 kubernetes = "*.yaml";
                 "http://json.schemastore.org/github-workflow" = ".github/workflows/*";
                 "http://json.schemastore.org/github-action" = ".github/action.{yml,yaml}";
@@ -183,7 +180,7 @@ in
             "<C-j>" = [ "scroll_documentation_down" ];
             "<C-k>" = [ "scroll_documentation_up" ];
           };
-            
+
           completion = {
             menu = {
               border = "single";
@@ -193,6 +190,8 @@ in
               window.border = "single";
             };
           };
+
+          sources.default = [ "lsp" "path" "snippets" "buffer" ];
         };
       };
 
@@ -211,7 +210,7 @@ in
 
       # Nvim-tree
       { mode = "n"; action = "<cmd>NvimTreeToggle<cr>"; key = "<C-M-b>"; }
-      
+
       # Telescope
       { mode = "n"; action = "<cmd>Telescope find_files<cr>"; key = "<C-M-p>"; }
       { mode = "n"; action = "<cmd>Telescope live_grep<cr>"; key="<leader>lg"; }
