@@ -36,6 +36,7 @@ in
         flavour = "mocha";
         integrations = {
           barbar      = true;
+          blink-cmp   = true;
           cmp         = true;
           gitsigns    = true;
           noice       = true;
