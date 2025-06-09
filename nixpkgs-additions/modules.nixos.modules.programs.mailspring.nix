@@ -43,6 +43,7 @@ let
         })
 
         if [ "$#" -gt 0 ]; then
+          echo "Running mailspring with provided flags. Settings from NixOS config will be ignored..."
           $EXECUTABLE "$@"
         else
           $EXECUTABLE "$FLAGS[@]"
