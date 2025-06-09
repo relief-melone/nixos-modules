@@ -30,7 +30,7 @@ let
       executable = pkgs.writeShellScript "mailspring.sh" ''
         EXECUTABLE=${lib.getExe pkgs.mailspring}
         FLAGS=(${
-          lib.concatStringsSep " " (
+          lib.concatStringsSep "\n" (
             [ ]
             ++ lib.optional (settings.password-store != null) "\"--password-store=${settings.password-store}\""
             ++ lib.optional (settings.dev != null) "\"--dev=${toString settings.dev}\""
