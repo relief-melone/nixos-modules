@@ -47,7 +47,7 @@ let
           $EXECUTABLE "$@"
         else
           echo "Running Mailspring with NixOS settings..."
-          $EXECUTABLE "$FLAGS"
+          $EXECUTABLE $FLAGS
         fi
       '';
       src = emptySource;
