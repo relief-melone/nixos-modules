@@ -29,24 +29,23 @@ let
       version = lib.getVersion pkgs.mailspring;
       executable = pkgs.writeShellScript "mailspring.sh" ''
         EXECUTABLE=${lib.getExe pkgs.mailspring}
-        FLAGS=(${
-          lib.concatStringsSep "\n" (
+        FLAGS='${
+          lib.concatStringsSep " " (
             [ ]
-            ++ lib.optional (settings.password-store != null) "\"--password-store=${settings.password-store}\""
-            ++ lib.optional (settings.dev != null) "\"--dev=${toString settings.dev}\""
-            ++ lib.optional (settings.log-file != null) "\"--log-file=${settings.log-file}\""
-            ++ lib.optional (settings.background != null) "\"--background=${toString settings.background}\""
-            ++ lib.optional (settings.safe != null) "\"--safe=${toString settings.safe}\""
-            ++ lib.optional (settings.enable-features != null) "\"--enable-features=${settings.enable-features}\""
-            ++ lib.optional (settings.ozone-platform != null) "\"--ozone-platform=${settings.ozone-platform}\""
+            ++ lib.optional (settings.password-store != null) "--password-store=${settings.password-store}"
+            ++ lib.optional (settings.dev != null) "--dev=${toString settings.dev}"
+            ++ lib.optional (settings.log-file != null) "--log-file=${settings.log-file}"
+            ++ lib.optional (settings.background != null) "--background=${toString settings.background}"
+            ++ lib.optional (settings.safe != null) "--safe=${toString settings.safe}"
+            ++ lib.optional (settings.enable-features != null) "--enable-features=${settings.enable-features}"
+            ++ lib.optional (settings.ozone-platform != null) "--ozone-platform=${settings.ozone-platform}"
           )
-        })
+        }'
 
         if [ "$#" -gt 0 ]; then
-          echo "Running mailspring with provided flags. Settings from NixOS config will be ignored..."
           $EXECUTABLE "$@"
         else
-          $EXECUTABLE "$\{FLAGS[@]\}"
+          $EXECUTABLE "$FLAGS"
         fi
       '';
       src = emptySource;
