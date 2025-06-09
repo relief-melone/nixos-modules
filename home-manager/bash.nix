@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ ...}:
 {
   programs.bash = {
     enable = true;
@@ -7,7 +7,7 @@
       alias la="ls -lha --color=auto"
 
       command -v kubecolor >/dev/null 2>&1 && alias kubectl="kubecolor"
-      source <(kubectl completion bash)      
+      source <(kubectl completion bash)
       alias k=kubectl
       alias kns="kubectl config set-context --current --namespace "
       complete -F __start_kubectl k
@@ -18,6 +18,6 @@
 
       alias calc="speedcrunch"
     '';
-    
+
   };
 }
