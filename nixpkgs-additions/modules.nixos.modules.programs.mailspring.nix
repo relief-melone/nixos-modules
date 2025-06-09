@@ -45,7 +45,7 @@ let
         if [ "$#" -gt 0 ]; then
           $EXECUTABLE "$@"
         else
-          $EXECUTABLE $FLAGS
+          $EXECUTABLE "$FLAGS"
         fi
       '';
       src = emptySource;
