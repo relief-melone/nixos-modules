@@ -103,7 +103,7 @@ in
       description = "Do not load packages from the settings 'packages' or 'dev/packages' folders.";
     };
 
-    settings.enable-featurtes = lib.mkOption {
+    settings.enable-features = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;
       description = "Enable features flag";
