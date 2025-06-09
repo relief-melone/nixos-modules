@@ -28,7 +28,7 @@ let
       pname = "mailspring";
       version = lib.getVersion pkgs.mailspring;
       executable = pkgs.writeShellScript "mailspring.sh" ''
-        EXECUTABLE=${lib.getExe pkgs.mailspring}
+        EXECUTABLE=${pkgs.mailspring}/bin/mailspring
         FLAGS='${
           lib.concatStringsSep " " (
             [ ]
