@@ -106,7 +106,7 @@ in
     settings.enable-featurtes = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;
-      description "Enable features flag"
+      description = "Enable features flag";
     };
 
     settings.ozone-platform = lib.mkOption {
