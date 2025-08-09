@@ -9,7 +9,8 @@
   programs.nixvim = {
     plugins.lsp.servers = {
       ts_ls.enable   = true;
-      volar.enable      = true;
+      volar.enable   = true;
+      pug.enable     = true;
 
       eslint = {
         enable = true;
