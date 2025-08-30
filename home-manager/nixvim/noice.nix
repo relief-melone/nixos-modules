@@ -40,7 +40,7 @@
           kindIcons = true;
         };
 
-        extraOptions = {
+        settings = {
           inc_rename.cmdline.format.IncRename = {icon = "⟳";};
         };
       };
