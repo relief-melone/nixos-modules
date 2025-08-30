@@ -34,5 +34,8 @@
 
     # nixvim
     nixosModules.nixvim = nixvim.nixosModules.nixvim ( import ./home-manager/nixvim );
+
+    # nixpkgs-additions
+    nixosModules.nixpkgs.mailspring = import ./nixpkgs-additions/modules.nixos.modules.programs.mailspring.nix;
   };
 }
