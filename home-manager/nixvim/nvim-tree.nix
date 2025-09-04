@@ -4,7 +4,7 @@
   programs.nixvim.plugins.web-devicons.enable = true;
   programs.nixvim.plugins.nvim-tree = {
     enable = true;
-    extraOptions = {
+    settings = {
       renderer = {
         highlight_git = true;
         root_folder_label = false;
