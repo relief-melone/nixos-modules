@@ -11,7 +11,7 @@
 
     dap_vscode_js.setup({
       debugger_path = "${pkgs.vscode-js-debug}", 
-      adapters = { 'pwa-node' }
+      adapters = { 'pwa-node', 'chrome', 'firefox' }
     })
   
     dap.adapters['pwa-node'] = {
@@ -47,7 +47,7 @@
     dap.configurations.vue = {
       {
         name = "Launch Chrome",
-        type = "pwa-chrome",
+        type = "chrome",
         request = "launch",
         url = "http://localhost:5173",
         webRoot = "''${workspaceFolder}",
