@@ -36,7 +36,7 @@
       local lspconfig = require('lspconfig')
 
       lspconfig.volar.setup{
-        filetypes = { 'vue', 'typescript', 'javascript', 'json' }
+        filetypes = { 'vue', 'typescript', 'javascript', 'json' },
         init_options = {
           vue = {
             hybridMode = false,
