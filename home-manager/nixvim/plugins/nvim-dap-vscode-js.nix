@@ -7,25 +7,27 @@
   programs.nixvim.extraConfigLua = ''
     local dap = require("dap")
     local dap_vscode_js = require("dap-vscode-js")
-    local languages = { "javascript" }
+    local languages = { "javascript", "typescript" }
+    local adapters = { "pwa-node", "pwa-chrome" }
 
     dap_vscode_js.setup({
-      debugger_path = "${pkgs.vscode-js-debug}", 
-      adapters = { 'pwa-node' }
+      debugger_path = "${pkgs.vscode-js-debug}",
+      adapters = adapters
     })
-  
-    dap.adapters['pwa-node'] = {
-      type = 'server',
-      host = 'localhost',
-      port = "''${port}",
-      executable = {
-        command = '${pkgs.vscode-js-debug}/bin/js-debug',
-        args = {
-          "''${port}"
-        },
-      },
-    }
 
+    for _, adapter in ipairs(adapters) do
+      dap.adapters[adapter] = {
+        type = 'server',
+        host = 'localhost',
+        port = "''${port}",
+        executable = {
+          command = '${pkgs.vscode-js-debug}/bin/js-debug',
+          args = {
+            "''${port}"
+          },
+        },
+      }
+    end
 
     for _, language in ipairs(languages) do
       dap.configurations[language] = {
@@ -43,5 +45,15 @@
         },
       }
     end
+
+    dap.configurations.vue = {
+      {
+        name = "Launch Chrome",
+        type = "pwa-chrome",
+        request = "launch",
+        url = "http://localhost:5173",
+        webRoot = "''${workspaceFolder}",
+      }
+    }
   '';
 }

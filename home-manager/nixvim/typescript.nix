@@ -27,8 +27,94 @@
 
     autoCmd = [{
       event = [ "BufWritePre" ] ;
-      pattern = [ "*.tsx" "*.ts" "*.jsx" "*.js" ];
+      pattern = [ "*.tsx" "*.ts" "*.jsx" "*.js" "*.vue" ];
       command = "silent! EslintFixAll";
     }];
+
+    # Vue Support
+    # Non hybrid mode
+    extraConfigLua = ''
+
+      local lspconfig = require('lspconfig')
+
+      lspconfig.volar.setup{
+        init_options = {
+          vue = {
+            hybridMode = false,
+          },
+        },
+        settings = {
+          typescript = {
+            inlayHints = {
+              enumMemberValues = {
+                enabled = true,
+              },
+              functionLikeReturnTypes = {
+                enabled = true,
+              },
+              propertyDeclarationTypes = {
+                enabled = true,
+              },
+              parameterTypes = {
+                enabled = true,
+                suppressWhenArgumentMatchesName = true,
+              },
+              variableTypes = {
+                enabled = true,
+              },
+            },
+          },
+        },
+      }
+
+      lspconfig.ts_ls.setup {
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = "/usr/local/lib/node_modules/typescript-vue-plugin",
+              languages = { "vue" }
+            },
+          },
+        },
+        settings = {
+          typescript = {
+            tsserver = {
+              useSyntaxServer = false,
+            },
+            inlayHints = {
+              includeInlayParameterNameHints = "all",
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+            },
+          },
+        },
+      }
+    '';
+
+    # Hybrid mode
+    #extraConfigLua = ''
+    #  require('lspconfig').ts_ls.setup{
+    #    init_options = {
+    #      plugins = {
+    #        {
+    #          name = "@vue/typescript-plugin",
+    #          location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+    #          languages = { "javascript", "typescript", "vue" }
+    #        },
+    #      },
+    #    },
+    #    filetypes = {
+    #      "javascript",
+    #      "typescript",
+    #      "vue",
+    #    },
+    #  }
+    #'';
   };
 }
