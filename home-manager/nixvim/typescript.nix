@@ -42,7 +42,7 @@
             hybridMode = false,
           },
         },
-      },
+      }
     '';
     #extraConfigLua = ''
     #  require('lspconfig').ts_ls.setup{
