@@ -33,6 +33,8 @@
 
     # Vue Support
     extraConfigLua = ''
+      local lspconfig = require('lspconfig')
+
       lspconfig.volar.setup{
         filetypes = { 'vue', 'typescript', 'javascript', 'json' }
         init_options = {
@@ -40,7 +42,7 @@
             hybridMode = false,
           },
         },
-      }
+      },
     '';
     #extraConfigLua = ''
     #  require('lspconfig').ts_ls.setup{
