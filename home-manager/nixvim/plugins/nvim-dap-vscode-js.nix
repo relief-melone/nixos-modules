@@ -8,7 +8,7 @@
     local dap = require("dap")
     local dap_vscode_js = require("dap-vscode-js")
     local languages = { "javascript", "typescript" }
-    local adapters = { "pwa-node", "chrome" }
+    local adapters = { "pwa-node", "pwa-chrome" }
 
     dap_vscode_js.setup({
       debugger_path = "${pkgs.vscode-js-debug}",
