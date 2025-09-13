@@ -8,13 +8,14 @@
     local dap = require("dap")
     local dap_vscode_js = require("dap-vscode-js")
     local languages = { "javascript", "typescript" }
+    local adapters = { "pwa-node", "chrome" }
 
     dap_vscode_js.setup({
       debugger_path = "${pkgs.vscode-js-debug}",
-      adapters = { 'pwa-node', 'chrome', 'firefox' }
+      adapters = adapters
     })
 
-    for _, adapter in ipairs(dap_vscode_js.adapters) do
+    for _, adapter in ipairs(adapters) do
       dap.adapters[adapter] = {
         type = 'server',
         host = 'localhost',
