@@ -10,22 +10,23 @@
     local languages = { "javascript", "typescript" }
 
     dap_vscode_js.setup({
-      debugger_path = "${pkgs.vscode-js-debug}", 
+      debugger_path = "${pkgs.vscode-js-debug}",
       adapters = { 'pwa-node', 'chrome', 'firefox' }
     })
-  
-    dap.adapters['pwa-node'] = {
-      type = 'server',
-      host = 'localhost',
-      port = "''${port}",
-      executable = {
-        command = '${pkgs.vscode-js-debug}/bin/js-debug',
-        args = {
-          "''${port}"
-        },
-      },
-    }
 
+    for _, adapter in ipairs(dap_vscode_js.adapters) do
+      dap.adapters[adapter] = {
+        type = 'server',
+        host = 'localhost',
+        port = "''${port}",
+        executable = {
+          command = '${pkgs.vscode-js-debug}/bin/js-debug',
+          args = {
+            "''${port}"
+          },
+        },
+      }
+    end
 
     for _, language in ipairs(languages) do
       dap.configurations[language] = {
