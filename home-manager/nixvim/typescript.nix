@@ -32,35 +32,39 @@
     }];
 
     # Vue Support
-    extraConfigLua = ''
-      local lspconfig = require('lspconfig')
-
-      lspconfig.volar.setup{
-        filetypes = { 'vue', 'typescript', 'javascript', 'json' },
-        init_options = {
-          vue = {
-            hybridMode = false,
-          },
-        },
-      }
-    '';
+    # Non hybrid mode
     #extraConfigLua = ''
-    #  require('lspconfig').ts_ls.setup{
+
+    #  local lspconfig = require('lspconfig')
+
+    #  lspconfig.volar.setup{
+    #    filetypes = { 'vue', 'typescript', 'javascript', 'json' },
     #    init_options = {
-    #      plugins = {
-    #        {
-    #          name = "@vue/typescript-plugin",
-    #          location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-    #          languages = { "javascript", "typescript", "vue" }
-    #        },
+    #      vue = {
+    #        hybridMode = false,
     #      },
-    #    },
-    #    filetypes = {
-    #      "javascript",
-    #      "typescript",
-    #      "vue",
     #    },
     #  }
     #'';
+
+    # Hybrid mode
+    extraConfigLua = ''
+      require('lspconfig').ts_ls.setup{
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+              languages = { "javascript", "typescript", "vue" }
+            },
+          },
+        },
+        filetypes = {
+          "javascript",
+          "typescript",
+          "vue",
+        },
+      }
+    '';
   };
 }
