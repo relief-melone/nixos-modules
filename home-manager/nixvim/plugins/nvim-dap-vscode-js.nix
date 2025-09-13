@@ -49,7 +49,7 @@
     dap.configurations.vue = {
       {
         name = "Launch Chrome",
-        type = "chrome",
+        type = "pwa-chrome",
         request = "launch",
         url = "http://localhost:5173",
         webRoot = "''${workspaceFolder}",
