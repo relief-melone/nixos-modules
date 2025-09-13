@@ -7,7 +7,7 @@
   programs.nixvim.extraConfigLua = ''
     local dap = require("dap")
     local dap_vscode_js = require("dap-vscode-js")
-    local languages = { "javascript" }
+    local languages = { "javascript", "typescript" }
 
     dap_vscode_js.setup({
       debugger_path = "${pkgs.vscode-js-debug}", 
@@ -43,5 +43,15 @@
         },
       }
     end
+
+    dap.configurations.vue = {
+      {
+        name = "Launch Chrome",
+        type = "pwa-chrome",
+        request = "launch",
+        url = "http://localhost:5173",
+        webRoot = "''${workspaceFolder}",
+      }
+    }
   '';
 }

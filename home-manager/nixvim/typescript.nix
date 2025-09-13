@@ -27,7 +27,7 @@
 
     autoCmd = [{
       event = [ "BufWritePre" ] ;
-      pattern = [ "*.tsx" "*.ts" "*.jsx" "*.js" ];
+      pattern = [ "*.tsx" "*.ts" "*.jsx" "*.js" "*.vue" ];
       command = "silent! EslintFixAll";
     }];
 
