@@ -147,9 +147,10 @@
           jsonls.enable     = true;
           lua_ls.enable     = true;
           nixd.enable       = true;
+          yamlls.enable     = true;
 
           yamlls = {
-            enable          = true;
+            # enable          = true;
             settings = {
               yaml.schemas = {
                 kubernetes = "*.yaml";
