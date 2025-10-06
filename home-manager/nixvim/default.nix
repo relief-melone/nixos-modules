@@ -142,7 +142,7 @@
         servers = {
           bashls.enable     = true;
           dockerls.enable   = true;
-          helm_ls.enable    = false;
+          helm-ls.enable    = true;
           html.enable       = true;
           jsonls.enable     = true;
           lua_ls.enable     = true;
