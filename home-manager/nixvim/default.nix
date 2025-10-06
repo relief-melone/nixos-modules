@@ -147,7 +147,7 @@
           jsonls.enable     = true;
           lua_ls.enable     = true;
           nixd.enable       = true;
-          yamlls.enable     = true;
+          yamlls.enable     = lib.mkForce true;
 
           yamlls = {
             # enable          = true;
