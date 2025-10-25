@@ -13,9 +13,11 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, ... }:{
+  outputs = { self, nixpkgs, home-manager, nixvim, mcphub-nvim, ... }:{
     # home-manager
     nixosModules.home-manager.bash      = import ./home-manager/bash.nix;
     nixosModules.home-manager.git       = import ./home-manager/git.nix;

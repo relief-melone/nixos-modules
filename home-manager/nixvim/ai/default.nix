@@ -3,6 +3,7 @@
   imports = [
     # Using Copilot for now
     # ./codecompanion.nix
+    ./avante.nix
   ];
 
   programs.nixvim.plugins = {
