@@ -25,7 +25,7 @@
       inherit mcphub-nvim nixpkgs nixvim;
 
       lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages.${nixpkgs.lib.system};
+      pkgs = nixpkgs.pkgs;
     };
     nixosModules.home-manager.starship  = import ./home-manager/starship.nix;
     nixosModules.home-manager.vscode    = import ./home-manager/vscode.nix;
