@@ -1,4 +1,4 @@
-{ pkgs, config, nixvim, lib, ...}:
+{ pkgs, nixvim, lib, ...}:
 {
 
   imports = [
