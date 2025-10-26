@@ -1,4 +1,4 @@
-{ pkgs, mcphub-nvim }:
+{ pkgs, mcphub-nvim, ... }:
 let
   mcphub = mcphub-nvim.packages.${pkgs.system}.default;
   mcp-hub = pkgs.buildNpmPackage (finalAttrs: {
