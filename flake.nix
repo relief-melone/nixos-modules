@@ -35,7 +35,9 @@
     nixosModules.network.allow_rm_ssh   = import ./network/allow_rm_ssh.nix;
 
     # nixvim
-    nixosModules.nixvim = nixvim.nixosModules.nixvim ( import ./home-manager/nixvim );
+    nixosModules.nixvim = nixvim.nixosModules.nixvim ( import ./home-manager/nixvim ) {
+      inherit mcphub-nvim;
+    };
 
     # nixpkgs-additions
     nixosModules.nixpkgs.mailspring = import ./nixpkgs-additions/modules.nixos.modules.programs.mailspring.nix;
