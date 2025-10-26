@@ -4,6 +4,7 @@
   imports = [
     nixvim.homeModules.nixvim
     ./ai
+    ./ai/avante.nix
 
     ./debug.nix
     ./noice.nix
