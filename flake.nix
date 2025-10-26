@@ -21,7 +21,9 @@
     # home-manager
     nixosModules.home-manager.bash      = import ./home-manager/bash.nix;
     nixosModules.home-manager.git       = import ./home-manager/git.nix;
-    nixosModules.home-manager.nixvim    = import ./home-manager/nixvim;
+    nixosModules.home-manager.nixvim    = import ./home-manager/nixvim {
+      inherit mcphub-nvim;
+    };
     nixosModules.home-manager.starship  = import ./home-manager/starship.nix;
     nixosModules.home-manager.vscode    = import ./home-manager/vscode.nix;
     nixosModules.home-manager.kitty     = import ./home-manager/kitty.nix;
@@ -35,9 +37,7 @@
     nixosModules.network.allow_rm_ssh   = import ./network/allow_rm_ssh.nix;
 
     # nixvim
-    nixosModules.nixvim = nixvim.nixosModules.nixvim ( import ./home-manager/nixvim ) {
-      inherit mcphub-nvim;
-    };
+    nixosModules.nixvim = nixvim.nixosModules.nixvim ( import ./home-manager/nixvim );
 
     # nixpkgs-additions
     nixosModules.nixpkgs.mailspring = import ./nixpkgs-additions/modules.nixos.modules.programs.mailspring.nix;
