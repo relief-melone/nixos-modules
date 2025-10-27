@@ -1,4 +1,4 @@
-{ mcphub-nvim }:
+{ mcphub-nvim, ... }:
 { lib, ... }:
 {
   imports = [
