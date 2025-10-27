@@ -22,10 +22,7 @@
     nixosModules.home-manager.bash      = import ./home-manager/bash.nix;
     nixosModules.home-manager.git       = import ./home-manager/git.nix;
     nixosModules.home-manager.nixvim    = import ./home-manager/nixvim {
-      inherit mcphub-nvim nixpkgs nixvim;
-
-      lib = nixpkgs.lib;
-      # pkgs = nixpkgs.legacyPackages.${nixpkgs.system};
+      inherit mcphub-nvim nixvim;
     };
     nixosModules.home-manager.starship  = import ./home-manager/starship.nix;
     nixosModules.home-manager.vscode    = import ./home-manager/vscode.nix;
