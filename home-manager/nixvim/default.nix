@@ -1,10 +1,9 @@
-{ mcphub-nvim, ... }:
 { pkgs, nixvim, lib, ...}:
 {
 
   imports = [
     nixvim.homeModules.nixvim
-    ./ai { inherit mcphub-nvim; }
+    ./ai
 
     ./debug.nix
     ./noice.nix

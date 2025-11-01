@@ -1,10 +1,9 @@
-{ mcphub-nvim, ... }:
 { lib, ... }:
 {
   imports = [
     # Using Copilot for now
     # ./codecompanion.nix
-    ./avante.nix { inherit mcphub-nvim; }
+    ./avante.nix
   ];
 
   programs.nixvim.plugins = {
