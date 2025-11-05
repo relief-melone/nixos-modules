@@ -7,13 +7,11 @@ in
 
   programs.git = {
     enable = true;
-    userEmail = "${userMail}";
-    userName = "${userName}";
+    settings = {
 
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
-      };
+      userEmail = "${userMail}";
+      userName = "${userName}";
+      init.defaultBranch = "main";
     };
   };
 }

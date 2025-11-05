@@ -5,7 +5,6 @@
     plugins = {
       rustaceanvim = {
         enable = true;
-
       };
 
       lsp = {
