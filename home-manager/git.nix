@@ -4,16 +4,12 @@ let
   userMail = "relief.melone@gmail.com";
 in
 {
-
   programs.git = {
     enable = true;
-    userEmail = "${userMail}";
-    userName = "${userName}";
-
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
-      };
+    settings = {
+      userEmail = "${userMail}";
+      userName = "${userName}";
+      init.defaultBranch = "main";
     };
   };
 }

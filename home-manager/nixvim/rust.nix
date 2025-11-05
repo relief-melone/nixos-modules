@@ -3,11 +3,8 @@
 {
   programs.nixvim = {
     plugins = {
-      rust-tools.enable = false;
-
       rustaceanvim = {
         enable = true;
-
       };
 
       lsp = {
