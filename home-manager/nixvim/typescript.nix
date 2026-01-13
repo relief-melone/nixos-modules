@@ -35,7 +35,7 @@
     # Non hybrid mode
     extraConfigLua = ''
 
-      local lspconfig = require('lspconfig')
+      local lspconfig = vim.lsp.config
 
       lspconfig.volar.setup{
         init_options = {

@@ -7,8 +7,10 @@ in
   programs.git = {
     enable = true;
     settings = {
-      userEmail = "${userMail}";
-      userName = "${userName}";
+      user = {
+        email = "${userMail}";
+        name = "${userName}";
+      };
       init.defaultBranch = "main";
     };
   };
