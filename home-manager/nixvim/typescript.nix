@@ -34,8 +34,31 @@
     # Vue Support
     # Non hybrid mode
     extraConfigLua = ''
-
+      local vue_language_server_path = ${pkgs.vue-language-server}
+      local tsserver_filetypes = { 'typescript', 'javascript', 'vue' }
       local lspconfig = vim.lsp.config
+
+      local vue_plugin = {
+        name = "@vue/typescript-plugin",
+        location = vue_language_server_path,
+        languages = { 'vue' },
+        configNamespace = 'typescript',
+      }
+
+      local ts_ls_config = {
+        init_options = {
+          plugins = {
+            vue_plugin
+          }
+        },
+        filetypes = tsserver_filetypes,
+      }
+
+      local vue_ls_config = {}
+
+      lspconfig('vue_ls', vue_ls_config)
+      lspconfig('ts_ls', ts_ls_config)
+      vim.lsp.enable({'tsls', 'vue_ls' })
 
       --[[
       lspconfig('volar', {
