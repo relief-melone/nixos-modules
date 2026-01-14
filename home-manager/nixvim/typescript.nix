@@ -10,7 +10,6 @@
     plugins.lsp.servers = {
       ts_ls.enable   = true;
       vue_ls.enable  = true;
-      volar.enable   = true;
       pug.enable     = true;
       pug.package    = null;
 
