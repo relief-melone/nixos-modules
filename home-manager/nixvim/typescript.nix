@@ -34,7 +34,7 @@
     # Vue Support
     # Non hybrid mode
     extraConfigLua = ''
-      local vue_language_server_path = ${pkgs.vue-language-server}
+      local vue_language_server_path = "${pkgs.vue-language-server}"
       local tsserver_filetypes = { 'typescript', 'javascript', 'vue' }
       local lspconfig = vim.lsp.config
 
