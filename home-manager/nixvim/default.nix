@@ -138,6 +138,7 @@
 
       airline = {
         settings = {
+          ambiwidth = "double";
           powerline_fonts = 1;
           theme = "base16_dracula";
         };
