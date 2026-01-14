@@ -37,7 +37,7 @@
 
       local lspconfig = vim.lsp.config
 
-      lspconfig.volar.setup{
+      lspconfig('volar', {
         init_options = {
           vue = {
             hybridMode = false,
@@ -65,9 +65,9 @@
             },
           },
         },
-      }
+      })
 
-      lspconfig.ts_ls.setup {
+      lspconfig('ts_ls', {
         init_options = {
           plugins = {
             {
@@ -94,7 +94,7 @@
             },
           },
         },
-      }
+      })
     '';
 
     # Hybrid mode
