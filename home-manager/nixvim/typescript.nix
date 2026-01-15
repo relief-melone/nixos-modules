@@ -9,7 +9,7 @@
   programs.nixvim = {
     plugins.lsp.servers = {
       ts_ls.enable   = true;
-      volar.enable   = true;
+      vue_ls.enable  = true;
       pug.enable     = true;
       pug.package    = null;
 
@@ -34,40 +34,34 @@
     # Vue Support
     # Non hybrid mode
     extraConfigLua = ''
+      local vue_language_server_path = "${pkgs.vue-language-server}"
+      local tsserver_filetypes = { 'typescript', 'javascript', 'vue' }
+      local lspconfig = vim.lsp.config
 
-      local lspconfig = require('lspconfig')
-
-      lspconfig.volar.setup{
-        init_options = {
-          vue = {
-            hybridMode = false,
-          },
-        },
-        settings = {
-          typescript = {
-            inlayHints = {
-              enumMemberValues = {
-                enabled = true,
-              },
-              functionLikeReturnTypes = {
-                enabled = true,
-              },
-              propertyDeclarationTypes = {
-                enabled = true,
-              },
-              parameterTypes = {
-                enabled = true,
-                suppressWhenArgumentMatchesName = true,
-              },
-              variableTypes = {
-                enabled = true,
-              },
-            },
-          },
-        },
+      local vue_plugin = {
+        name = "@vue/typescript-plugin",
+        location = vue_language_server_path,
+        languages = { 'vue' },
+        configNamespace = 'typescript',
       }
 
-      lspconfig.ts_ls.setup {
+      local ts_ls_config = {
+        init_options = {
+          plugins = {
+            vue_plugin
+          }
+        },
+        filetypes = tsserver_filetypes,
+      }
+
+      local vue_ls_config = {}
+
+      lspconfig('vue_ls', vue_ls_config)
+      lspconfig('ts_ls', ts_ls_config)
+      vim.lsp.enable({'ts_ls', 'vue_ls' })
+
+      --[[ 
+      lspconfig('ts_ls', {
         init_options = {
           plugins = {
             {
@@ -94,7 +88,8 @@
             },
           },
         },
-      }
+      })
+      --]]
     '';
 
     # Hybrid mode

@@ -1,4 +1,3 @@
-# lldb needs to be installed. At the time of writing lldb_18 was installed
 { ... }:
 {
   programs.nixvim = {
@@ -23,9 +22,6 @@
       };
     };
     extraConfigLua = ''
-        -- local rust_analyzer = require("lspconfig").rust_analyzer
-
-
         -- DEBUG RUST
         dap.adapters.lldb = {
           type = 'executable',
