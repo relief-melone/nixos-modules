@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
 
   programs.nixvim = {
@@ -13,7 +13,7 @@
       nvim-gdb
     ];
 
-    keymaps = [      
+    keymaps = [
       # Dap
       { mode = "n"; action = "<cmd>DapToggleBreakpoint<cr>";  key = "<leader>b"; }
       { mode = "n"; action = "<cmd>DapContinue<cr>"; key = "<F5>"; }

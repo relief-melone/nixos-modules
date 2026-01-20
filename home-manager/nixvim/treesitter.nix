@@ -1,7 +1,7 @@
-{ pkgs, ...}:
+{ lib, ...}:
 {
   programs.nixvim.plugins.treesitter = {
-    enable = true;
+    enable = lib.mkDefault true;
     settings.highlight.enable = true;
   };
 }

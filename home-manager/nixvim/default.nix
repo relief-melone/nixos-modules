@@ -18,51 +18,37 @@
   '';
 
   programs.nixvim = {
-    enable    = true;
-    viAlias   = true;
-    vimAlias  = true;
+    enable    = lib.mkDefault true;
+    viAlias   = lib.mkDefault true;
+    vimAlias  = lib.mkDefault true;
 
     clipboard.register = "unnamedplus";
 
-    colorschemes.catppuccin = {
-      enable 	              = true;
-
-
-      settings = {
-        transparent_background = true;
-        flavour = "mocha";
-        integrations = {
-          barbar      = true;
-          cmp         = true;
-          gitsigns    = true;
-          noice       = true;
-          notify      = true;
-          nvimtree    = true;
-          treesitter  = true;
-        };
-      };
+    colorschemes.cyberdream = {
+      enable = true;
     };
 
-    highlight = {
-      DapBP         = { fg = "#7bcc40";};
-      DapST         = { fg = "#f47722"; };
-      VisualNonText = { fg = "#2be6d2"; };
+
+    highlight =  {
+      DapBP         = { fg = lib.mkDefault "#7bcc40";};
+      DapST         = { fg = lib.mkDefault "#f47722"; };
+      VisualNonText = { fg = lib.mkDefault "#2be6d2"; };
     };
 
     opts = {
-      number          = true;
-      relativenumber  = true;
-      expandtab       = true;
-      tabstop	        = 2;
-      shiftwidth      = 2;
+      number          = lib.mkDefault true;
+      relativenumber  = lib.mkDefault true;
+      expandtab       = lib.mkDefault true;
+      tabstop	        = lib.mkDefault 2;
+      shiftwidth      = lib.mkDefault 2;
     };
 
-    extraPlugins = with pkgs.vimPlugins; [
+    extraPlugins = with pkgs.vimPlugins; lib.mkDefault [
       vim-hcl
       vim-flog
       vim-helm
       vim-gitbranch
-      vim-airline-themes
+      #vim-airline-themes
     ];
 
     extraConfigLua = ''
@@ -77,14 +63,14 @@
 
     lsp = {
       servers = {
-        bashls.enable     = true;
-        dockerls.enable   = true;
-        helm-ls.enable    = true;
-        html.enable       = true;
-        jsonls.enable     = true;
-        lua_ls.enable     = true;
-        nixd.enable       = true;
-        yamlls.enable     = lib.mkForce true;
+        bashls.enable     = lib.mkDefault true;
+        dockerls.enable   = lib.mkDefault true;
+        helm-ls.enable    = lib.mkDefault true;
+        html.enable       = lib.mkDefault true;
+        jsonls.enable     = lib.mkDefault true;
+        lua_ls.enable     = lib.mkDefault true;
+        nixd.enable       = lib.mkDefault true;
+        yamlls.enable     = lib.mkDefault true;
 
         yamlls = {
           # enable          = true;
@@ -111,12 +97,7 @@
 
 
     plugins = {
-      barbar.enable             = true;
-      telescope.enable          = true;
       lsp.enable                = true;
-      blink-cmp.enable          = true;
-      airline.enable            = true;
-      dap.enable                = true;
       diffview.enable           = true;
       fugitive.enable           = true;
       gitsigns.enable           = true;
@@ -128,23 +109,25 @@
       notify.enable             = true;
       rainbow-delimiters.enable = true;
       toggleterm.enable         = true;
-      whitespace.enable  = true;
       web-devicons.enable       = true;
       which-key.enable          = true;
 
       barbar = {
+        enable = true;
         settings.animation = true;
       };
 
       airline = {
+        enable = false;
         settings = {
           ambiwidth = "double";
-          powerline_fonts = 1;
+          powerline_fonts = 0;
           theme = "base16_dracula";
         };
       };
 
       dap = {
+        enable = true;
         signs = {
           dapBreakpoint =  { text="◉"; texthl="DapBP"; linehl=""; numhl=""; };
           dapStopped =  { text="◉"; texthl="DapST"; linehl="DapST"; numhl="DapST"; };
@@ -152,6 +135,7 @@
       };
 
       telescope = {
+        enable = true;
         settings = {
           pickers.find_files = {
             hidden = true;
@@ -174,6 +158,7 @@
       };
 
       blink-cmp = {
+        enable = true;
         settings = {
           keymap = {
             "<Tab>" = [ "select_next" "fallback" ];
@@ -198,6 +183,7 @@
       };
 
       whitespace = {
+        enable = lib.mkDefault true;
         settings = {
           hightlight = "ColoredWhitespace";
           ignore_terminal = true;
