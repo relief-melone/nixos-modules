@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.nixvim = {
     plugins = {
@@ -25,7 +25,7 @@
         -- DEBUG RUST
         dap.adapters.lldb = {
           type = 'executable',
-          command = '/run/current-system/sw/bin/lldb-vscode',
+          command = '${pkgs.lldb}/bin/lldb-dap',
           name = 'lldb'
         }
 
@@ -50,7 +50,7 @@
     '';
 
     keymaps = [
-      
+
     ];
   };
 }
