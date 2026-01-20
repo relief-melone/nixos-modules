@@ -146,7 +146,7 @@
         };
       };
 
-      telescope = lib.mkDefault {
+      telescope = {
         enable = true;
         settings = {
           pickers.find_files = {
@@ -169,7 +169,7 @@
         };
       };
 
-      blink-cmp = lib.mkDefault {
+      blink-cmp = {
         enable = true;
         settings = {
           keymap = {
@@ -194,7 +194,8 @@
         };
       };
 
-      whitespace = lib.mkDefault {
+      whitespace = {
+        enable = lib.mkDefault true;
         settings = {
           hightlight = "ColoredWhitespace";
           ignore_terminal = true;
