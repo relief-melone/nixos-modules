@@ -24,10 +24,8 @@
 
     clipboard.register = "unnamedplus";
 
-    colorschemes.catppuccin = {
+    colorschemes.catppuccin = lib.mkDefault {
       enable 	              = true;
-
-
       settings = {
         transparent_background = true;
         flavour = "mocha";
@@ -43,13 +41,13 @@
       };
     };
 
-    highlight = {
+    highlight = lib.mkDefault {
       DapBP         = { fg = "#7bcc40";};
       DapST         = { fg = "#f47722"; };
       VisualNonText = { fg = "#2be6d2"; };
     };
 
-    opts = {
+    opts = lib.mkDefault {
       number          = true;
       relativenumber  = true;
       expandtab       = true;
@@ -57,12 +55,12 @@
       shiftwidth      = 2;
     };
 
-    extraPlugins = with pkgs.vimPlugins; [
+    extraPlugins = with pkgs.vimPlugins; lib.mkDefault [
       vim-hcl
       vim-flog
       vim-helm
       vim-gitbranch
-      vim-airline-themes
+      #vim-airline-themes
     ];
 
     extraConfigLua = ''
@@ -111,12 +109,7 @@
 
 
     plugins = {
-      barbar.enable             = true;
-      telescope.enable          = true;
       lsp.enable                = true;
-      blink-cmp.enable          = true;
-      #airline.enable            = lib.mkDefault true;
-      dap.enable                = true;
       diffview.enable           = true;
       fugitive.enable           = true;
       gitsigns.enable           = true;
@@ -128,31 +121,33 @@
       notify.enable             = true;
       rainbow-delimiters.enable = true;
       toggleterm.enable         = true;
-      whitespace.enable  = true;
       web-devicons.enable       = true;
       which-key.enable          = true;
 
-      barbar = {
+      barbar = lib.mkDefault {
+        enable = true;
         settings.animation = true;
       };
 
       airline =  lib.mkDefault {
-        enable = true;
+        enable = false;
         settings = {
           ambiwidth = "double";
-          powerline_fonts = 1;
+          powerline_fonts = 0;
           theme = "base16_dracula";
         };
       };
 
-      dap = {
+      dap = lib.mkDefault {
+        enable = true;
         signs = {
           dapBreakpoint =  { text="◉"; texthl="DapBP"; linehl=""; numhl=""; };
           dapStopped =  { text="◉"; texthl="DapST"; linehl="DapST"; numhl="DapST"; };
         };
       };
 
-      telescope = {
+      telescope = lib.mkDefault {
+        enable = true;
         settings = {
           pickers.find_files = {
             hidden = true;
@@ -174,7 +169,8 @@
         };
       };
 
-      blink-cmp = {
+      blink-cmp = lib.mkDefault {
+        enable = true;
         settings = {
           keymap = {
             "<Tab>" = [ "select_next" "fallback" ];
@@ -198,7 +194,7 @@
         };
       };
 
-      whitespace = {
+      whitespace = lib.mkDefault {
         settings = {
           hightlight = "ColoredWhitespace";
           ignore_terminal = true;
