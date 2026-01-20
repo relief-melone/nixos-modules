@@ -25,7 +25,7 @@
         -- DEBUG RUST
         dap.adapters.lldb = {
           type = 'executable',
-          command = '{pkgs.lldb}/bin/lldb-dap'
+          command = '{pkgs.lldb}/bin/lldb-dap',
           name = 'lldb'
         }
 
@@ -50,7 +50,7 @@
     '';
 
     keymaps = [
-      
+
     ];
   };
 }
