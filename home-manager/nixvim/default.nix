@@ -18,33 +18,33 @@
   '';
 
   programs.nixvim = {
-    enable    = true;
-    viAlias   = true;
-    vimAlias  = true;
+    enable    = lib.mkDefault true;
+    viAlias   = lib.mkDefault true;
+    vimAlias  = lib.mkDefaukt true;
 
     clipboard.register = "unnamedplus";
 
-    colorschemes.catppuccin = lib.mkDefault {
-      enable 	              = true;
+    colorschemes.catppuccin = {
+      enable 	              = lib.mkDefault true;
       settings = {
-        transparent_background = true;
-        flavour = "mocha";
+        transparent_background = lib.mkDefault true;
+        flavour = lib.mkDefault "mocha";
         integrations = {
-          barbar      = true;
-          cmp         = true;
-          gitsigns    = true;
-          noice       = true;
-          notify      = true;
-          nvimtree    = true;
-          treesitter  = true;
+          barbar      = lib.mkDefault true;
+          cmp         = lib.mkDefault true;
+          gitsigns    = lib.mkDefault true;
+          noice       = lib.mkDefault true;
+          notify      = lib.mkDefault true;
+          nvimtree    = lib.mkDefault true;
+          treesitter  = lib.mkDefault true;
         };
       };
     };
 
-    highlight = lib.mkDefault {
-      DapBP         = { fg = "#7bcc40";};
-      DapST         = { fg = "#f47722"; };
-      VisualNonText = { fg = "#2be6d2"; };
+    highlight =  {
+      DapBP         = { fg = lib.mkDefault "#7bcc40";};
+      DapST         = { fg = lib.mkDefault "#f47722"; };
+      VisualNonText = { fg = lib.mkDefault "#2be6d2"; };
     };
 
     opts = {
@@ -75,14 +75,14 @@
 
     lsp = {
       servers = {
-        bashls.enable     = true;
-        dockerls.enable   = true;
-        helm-ls.enable    = true;
-        html.enable       = true;
-        jsonls.enable     = true;
-        lua_ls.enable     = true;
-        nixd.enable       = true;
-        yamlls.enable     = lib.mkForce true;
+        bashls.enable     = lib.mkDefault true;
+        dockerls.enable   = lib.mkDefault true;
+        helm-ls.enable    = lib.mkDefault true;
+        html.enable       = lib.mkDefault true;
+        jsonls.enable     = lib.mkDefault true;
+        lua_ls.enable     = lib.mkDefault true;
+        nixd.enable       = lib.mkDefault true;
+        yamlls.enable     = lib.mkDefault true;
 
         yamlls = {
           # enable          = true;
