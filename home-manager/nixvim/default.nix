@@ -115,7 +115,7 @@
       telescope.enable          = true;
       lsp.enable                = true;
       blink-cmp.enable          = true;
-      airline.enable            = lib.mkDefault false;
+      #airline.enable            = lib.mkDefault true;
       dap.enable                = true;
       diffview.enable           = true;
       fugitive.enable           = true;
@@ -136,7 +136,8 @@
         settings.animation = true;
       };
 
-      airline = {
+      airline =  lib.mkDefault {
+        enable = true;
         settings = {
           ambiwidth = "double";
           powerline_fonts = 1;
