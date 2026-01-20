@@ -20,7 +20,7 @@
   programs.nixvim = {
     enable    = lib.mkDefault true;
     viAlias   = lib.mkDefault true;
-    vimAlias  = lib.mkDefaukt true;
+    vimAlias  = lib.mkDefault true;
 
     clipboard.register = "unnamedplus";
 
