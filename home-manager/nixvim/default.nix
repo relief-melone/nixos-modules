@@ -26,9 +26,6 @@
 
     colorschemes.cyberdream = {
       enable = true;
-      settings = {
-        
-      };
     };
 
 
