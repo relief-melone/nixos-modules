@@ -47,12 +47,12 @@
       VisualNonText = { fg = "#2be6d2"; };
     };
 
-    opts = lib.mkDefault {
-      number          = true;
-      relativenumber  = true;
-      expandtab       = true;
-      tabstop	        = 2;
-      shiftwidth      = 2;
+    opts = {
+      number          = lib.mkDefault true;
+      relativenumber  = lib.mkDefault true;
+      expandtab       = lib.mkDefault true;
+      tabstop	        = lib.mkDefault 2;
+      shiftwidth      = lib.mkDefault 2;
     };
 
     extraPlugins = with pkgs.vimPlugins; lib.mkDefault [
