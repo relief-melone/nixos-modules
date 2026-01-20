@@ -115,7 +115,7 @@
       telescope.enable          = true;
       lsp.enable                = true;
       blink-cmp.enable          = true;
-      airline.enable            = lib.mkDefault true;
+      airline.enable            = lib.mkDefault false;
       dap.enable                = true;
       diffview.enable           = true;
       fugitive.enable           = true;
