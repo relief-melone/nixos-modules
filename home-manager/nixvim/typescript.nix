@@ -60,7 +60,7 @@
       lspconfig('ts_ls', ts_ls_config)
       vim.lsp.enable({'ts_ls', 'vue_ls' })
 
-      --[[ 
+      --[[
       lspconfig('ts_ls', {
         init_options = {
           plugins = {
@@ -74,7 +74,7 @@
         settings = {
           typescript = {
             tsserver = {
-              useSyntaxServer = false,
+              useSyntaxServer = true,
             },
             inlayHints = {
               includeInlayParameterNameHints = "all",
