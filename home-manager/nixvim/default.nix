@@ -24,22 +24,13 @@
 
     clipboard.register = "unnamedplus";
 
-    colorschemes.catppuccin = {
-      enable 	              = lib.mkDefault true;
+    colorschemes.cyberdream = {
+      enable = true;
       settings = {
-        transparent_background = lib.mkDefault true;
-        flavour = lib.mkDefault "mocha";
-        integrations = {
-          barbar      = lib.mkDefault true;
-          cmp         = lib.mkDefault true;
-          gitsigns    = lib.mkDefault true;
-          noice       = lib.mkDefault true;
-          notify      = lib.mkDefault true;
-          nvimtree    = lib.mkDefault true;
-          treesitter  = lib.mkDefault true;
-        };
+        
       };
     };
+
 
     highlight =  {
       DapBP         = { fg = lib.mkDefault "#7bcc40";};

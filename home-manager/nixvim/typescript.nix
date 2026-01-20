@@ -74,7 +74,7 @@
         settings = {
           typescript = {
             tsserver = {
-              useSyntaxServer = true,
+              useSyntaxServer = false,
             },
             inlayHints = {
               includeInlayParameterNameHints = "all",
