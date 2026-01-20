@@ -124,12 +124,12 @@
       web-devicons.enable       = true;
       which-key.enable          = true;
 
-      barbar = lib.mkDefault {
+      barbar = {
         enable = true;
         settings.animation = true;
       };
 
-      airline =  lib.mkDefault {
+      airline = {
         enable = false;
         settings = {
           ambiwidth = "double";
@@ -138,7 +138,7 @@
         };
       };
 
-      dap = lib.mkDefault {
+      dap = {
         enable = true;
         signs = {
           dapBreakpoint =  { text="◉"; texthl="DapBP"; linehl=""; numhl=""; };
