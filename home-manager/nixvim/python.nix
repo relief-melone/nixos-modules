@@ -2,6 +2,10 @@
 {
   programs.nixvim = {
 
+    extraPlugins = with pkgs.vimPlugins; [
+      nvim-dap-python
+    ];
+
     lsp.servers.basedpyright.enable = true;
 
     extraConfigLua = ''
