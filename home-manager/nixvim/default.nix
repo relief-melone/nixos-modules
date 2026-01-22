@@ -3,14 +3,19 @@
 
   imports = [
     nixvim.homeModules.nixvim
-    ./ai
-
+    # Basics
     ./debug.nix
     ./noice.nix
     ./nvim-tree.nix
-    ./rust.nix
     ./treesitter.nix
+
+    # Languages
+    ./python.nix
     ./typescript.nix
+    ./rust.nix
+
+    # Misc
+    ./ai
   ];
 
   programs.bash.bashrcExtra = ''
