@@ -68,14 +68,15 @@
 
     lsp = {
       servers = {
-        bashls.enable     = lib.mkDefault true;
-        dockerls.enable   = lib.mkDefault true;
-        helm-ls.enable    = lib.mkDefault true;
-        html.enable       = lib.mkDefault true;
-        jsonls.enable     = lib.mkDefault true;
-        lua_ls.enable     = lib.mkDefault true;
-        nixd.enable       = lib.mkDefault true;
-        yamlls.enable     = lib.mkDefault true;
+        bashls.enable       = lib.mkDefault true;
+        dockerls.enable     = lib.mkDefault true;
+        helm-ls.enable      = lib.mkDefault true;
+        html.enable         = lib.mkDefault true;
+        jsonls.enable       = lib.mkDefault true;
+        lua_ls.enable       = lib.mkDefault true;
+        nixd.enable         = lib.mkDefault true;
+        yamlls.enable       = lib.mkDefault true;
+        terraformls.enable  = lib.mkDefault true;
 
         yamlls = {
           # enable          = true;
