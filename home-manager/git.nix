@@ -1,17 +1,14 @@
 { config, pkgs, lib, vars, ... }:
-let
-  userName = "Relief Melone";
-  userMail = "relief.melone@gmail.com";
-in
 {
   programs.git = {
     enable = true;
     settings = {
-      user = {
-        email = "${userMail}";
-        name = "${userName}";
-      };
       init.defaultBranch = "main";
+      filter.sops-yaml = {
+        clean = "${pkgs.sops}/bin/sops --encrypt --input-type yaml --output-type yaml /dev/stdin";
+        smudge = "${pkgs.sops}/bin/sops --decrypt /dev/stdin";
+        required = true;
+      };
     };
   };
 }
