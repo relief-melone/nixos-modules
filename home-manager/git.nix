@@ -9,6 +9,10 @@
         smudge = "${pkgs.sops}/bin/sops --decrypt --input-type yaml --output-type yaml /dev/stdin";
         required = true;
       };
+
+      diff = {
+        sops-yaml = "${pkgs.sops}/bin/sops --decrypt 2>/dev/null || cat";
+      };
     };
   };
 }
