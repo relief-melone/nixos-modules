@@ -10,9 +10,7 @@
         required = true;
       };
 
-      diff = {
-        sops-yaml = "${pkgs.sops}/bin/sops --decrypt 2>/dev/null || cat";
-      };
+      diff.sops-yaml = "${pkgs.sops}/bin/sops --decrypt 2>/dev/null || cat";
     };
   };
 }
