@@ -13,6 +13,7 @@
     ./python.nix
     ./typescript.nix
     ./rust.nix
+    ./terraform.nix
 
     # Misc
     ./ai
@@ -76,7 +77,6 @@
         lua_ls.enable       = lib.mkDefault true;
         nixd.enable         = lib.mkDefault true;
         yamlls.enable       = lib.mkDefault true;
-        #terraformls.enable  = lib.mkDefault true;
         tofuls.enable       = lib.mkDefault true;
 
         yamlls = {
