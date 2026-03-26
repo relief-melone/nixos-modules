@@ -4,7 +4,7 @@
     lsp.servers.terraformls.enable = lib.mkDefault true;
 
     plugins.conform-nvim = {
-      enable = true;
+      enable = lib.mkDefault true;
       settings = {
         formatters_by_ft = {
           terraform = [ "terraform_fmt" ];
