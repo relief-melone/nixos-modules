@@ -12,7 +12,7 @@
       };
 
       diff.sops-yaml = {
-        textconv = "${pkgs.sops}/bin/sops --decrypt --input-type yaml --output-type yaml /dev/stdin 2>/dev/null || cat";
+        textconv = "${pkgs.sops}/bin/sops --decrypt  --input-type yaml --output-type yaml 2>/dev/null || cat";
       };
     };
   };
