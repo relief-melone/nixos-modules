@@ -6,6 +6,7 @@
       init.defaultBranch = "main";
       filter.sops-yaml = {
         clean = "${pkgs.sops}/bin/sops --encrypt --input-type yaml --output-type yaml /dev/stdin 2> /dev/null || cat";
+        smudge = "cat";
         #smudge = "${pkgs.sops}/bin/sops --decrypt --input-type yaml --output-type yaml /dev/stdin";
         required = true;
       };
