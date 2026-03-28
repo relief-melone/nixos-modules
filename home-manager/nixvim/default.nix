@@ -247,6 +247,23 @@
       event = ["BufEnter" "CursorHold" "CursorHoldI" "FocusGained" ];
       pattern = [ "*" ];
       command = "if mode() != 'c' | checktime | endif";
+    }{
+      event = [ "BufRead" "BufNewFile" ];
+      pattern = [ "*.yaml" "*.yml" ];
+      callback = {
+        __raw = ''
+          function()
+            -- Scan the first 20 lines of the file for '{{'
+            local lines = vim.api.nvim_buf_get_lines(0, 0, 20, false)
+            for _, line in ipairs(lines) do
+              if line:match("{{") then
+                vim.bo.filetype = "helm"
+                break
+              end
+            end
+          end
+        '';
+      };
     }];
   };
 
