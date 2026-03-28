@@ -248,13 +248,15 @@
       pattern = [ "*" ];
       command = "if mode() != 'c' | checktime | endif";
     }{
+      # Problem with helm templates not being treated as helm filetype. Checks for {{ in first 50 lines and if found
+      # changes the filetyp to helm for helm_ls
       event = [ "BufRead" "BufNewFile" ];
       pattern = [ "*.yaml" "*.yml" ];
       callback = {
         __raw = ''
           function()
             -- Scan the first 20 lines of the file for '{{'
-            local lines = vim.api.nvim_buf_get_lines(0, 0, 20, false)
+            local lines = vim.api.nvim_buf_get_lines(0, 0, 50, false)
             for _, line in ipairs(lines) do
               if line:match("{{") then
                 vim.bo.filetype = "helm"
