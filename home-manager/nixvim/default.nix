@@ -71,7 +71,7 @@
       servers = {
         bashls.enable       = lib.mkDefault true;
         dockerls.enable     = lib.mkDefault true;
-        helm-ls.enable      = lib.mkDefault true;
+        helm_ls.enable      = lib.mkDefault true;
         html.enable         = lib.mkDefault true;
         jsonls.enable       = lib.mkDefault true;
         lua_ls.enable       = lib.mkDefault true;
