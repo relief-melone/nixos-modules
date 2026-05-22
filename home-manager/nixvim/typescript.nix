@@ -34,15 +34,17 @@
     # Vue Support
     # Non hybrid mode
     extraConfigLua = ''
-      local vue_language_server_path = "${pkgs.vue-language-server}/bin"
+      local vue_language_server_path = "${pkgs.vue-language-server}"
+      local typescript_plugin_path = language_server_path .. "/lib/language-tools/packages/language-server/node_modules/@vue/typescript-plugin"
       local tsserver_filetypes = { 'typescript', 'javascript', 'vue' }
       local lspconfig = vim.lsp.config
 
       local vue_plugin = {
         name = "@vue/typescript-plugin",
-        location = vue_language_server_path,
+        location = typescript_plugin_path,
         languages = { 'vue' },
         configNamespace = 'typescript',
+        enableForWorkspace = true,
       }
 
       local ts_ls_config = {
