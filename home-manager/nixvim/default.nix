@@ -266,6 +266,11 @@
           end
         '';
       };
+    }{
+      # Highlighting active buffer
+      event = [ "WinEnter" "BufEnter" ];
+      pattern = [ "*" ];
+      command = "setlocal winhl=Normal:ActiveWindow,NormalNC:InactiveWindow";
     }];
   };
 
