@@ -54,12 +54,16 @@
       vim-flog
       vim-helm
       vim-gitbranch
+      tint-nvim
       #vim-airline-themes
     ];
 
     extraConfigLua = ''
       -- APPEARANCE
       vim.api.nvim_set_hl(0, 'LineNr', { fg = "#35b6e6" })
+      --   Line Separator
+      vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#ff007c', bold = true })
+
 
       --   Cursor style
       vim.o.guicursor = 'n-v-c-sm:block,i:ver100-iCursor-blinkon1-blinkwait10'
