@@ -54,8 +54,6 @@
       vim-flog
       vim-helm
       vim-gitbranch
-      tint-nvim
-      #vim-airline-themes
     ];
 
     extraConfigLua = ''
